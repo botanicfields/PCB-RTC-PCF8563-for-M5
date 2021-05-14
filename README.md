@@ -34,7 +34,9 @@ https://akizukidenshi.com/catalog/g/gK-09991/)
 <img src="./image/RTC_Calibrate.JPEG" width=300>
 
 # ソフトウェア
-　RTC の使用にあたっては、一般に入手可能なライブラリを利用することができます。一方で、サンプルプログラムを作成し、BF-027 フォルダに置きました。  
+　RTC の使用にあたっては、一般に入手可能なライブラリを利用することができます。
+
+　他の I2C デバイスとの共存や、NTP との相互補完を想定したサンプルプログラムを作成し、BF-027 フォルダに置きました。詳細な説明は Qiita にあります。
 
 1. BF_Pcf8563.h, BF_Pcf8563.cpp
 
@@ -58,13 +60,8 @@ https://akizukidenshi.com/catalog/g/gK-09991/)
 
     上記プログラムの使用例です。
 
-詳細な説明が Qiita にあります。
+(1) Qiita [「M5Atom, M5Stack Core 用の I2C リアルタイムクロック基板を作って動かす」](https://qiita.com/BotanicFields/items/dc35e12423be8f6e9b4e)
 
-(1) 上記 1. 2. : Qiita [「M5Atom, M5Stack Core 用の I2C リアルタイムクロック基板を作って動かす」](https://qiita.com/BotanicFields/items/dc35e12423be8f6e9b4e)
-
-(2) 上記 3. 5. : Qiita [「ESP32 において NTP の時刻同期を捕まえて RTC を更新する」](https://qiita.com/BotanicFields/items/f1e28af5a63e4ccf7023)
-
-
-
+(2) Qiita [「ESP32 において NTP の時刻同期を捕まえて RTC を更新する」](https://qiita.com/BotanicFields/items/f1e28af5a63e4ccf7023)
 
 
