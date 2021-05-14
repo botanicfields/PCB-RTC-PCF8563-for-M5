@@ -1,5 +1,5 @@
 ## PCB-RTC-PCF8563-for-M5
-PCF8563 RTC PCB with Grove I2C interface for M5Stack, M5Atom on Arduino IDE calibrated by SNTP
+a PCB of PCF8563-RTC with Grove-I2C for M5Stack and M5Atom synchronized with NTP
 
 # M5 用 RTC 基板
 <img src="./image/RTC_front.jpeg" width=300>
