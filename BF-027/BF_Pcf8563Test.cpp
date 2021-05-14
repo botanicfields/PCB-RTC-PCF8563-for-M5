@@ -31,14 +31,14 @@ void CompareRtcxTime()
   struct tm tm_rtcx;
 
   PrintTimeval();
-  getLocalTime(&tm_glt);    
+  getLocalTime(&tm_glt);
   Serial.print(&tm_glt, "getLocalTime = %A, %B %d %Y %H:%M:%S;  ");
-  rtcx.ReadTime(&tm_rtcx);  
+  rtcx.ReadTime(&tm_rtcx);
   Serial.print(&tm_rtcx, "RTCx = %A, %B %d %Y %H:%M:%S;  ");
   // print sample: must be < 64
   //....:....1....:....2....:....3....:....4....:....5....:....6....
-  //getLocalTime = Wednesday, September 11 2021 11:10:46;  
-  //RTCx = Wednesday, September 11 2021 11:10:46;  
+  //getLocalTime = Wednesday, September 11 2021 11:10:46;
+  //RTCx = Wednesday, September 11 2021 11:10:46;
 
   Serial.printf("RTCx - gLT = %d\n", mktime(&tm_rtcx) - mktime(&tm_glt));
 }

@@ -57,6 +57,6 @@ void PrintWiFiStatus(const char* header, wl_status_t wl_status)
   if (wl_status >= 0 && wl_status <= 6)
     wl_status_index = wl_status;
   if (wl_status == 255)
-    wl_status_index = 7; 
-  Serial.printf("%s WiFi status = %d: %s\n", header, wl_status, wl_status_str[wl_status_index]); 
+    wl_status_index = 7;
+  Serial.printf("%s WiFi status = %d: %s\n", header, wl_status, wl_status_str[wl_status_index]);
 }

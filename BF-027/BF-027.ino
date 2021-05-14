@@ -30,7 +30,7 @@ void setup()
 
   // RTCx PCF8563: set I2C connected
   rtcx.Begin(Wire);
-  
+
   // RTCx PCF8563: function tests
 //  TestControl();
 //  TestAlarm();
@@ -41,7 +41,7 @@ void setup()
 
   // RTCx PCF8563: for adjusting trimmer capacitor
   rtcx.ClockOutForTrimmer();
- 
+
   // set system time, connect Wi-Fi, start NTP
   SetTimeFromRtcx();
   WifiBegin();
@@ -62,7 +62,7 @@ void loop()
     interval_last_ms = now_ms;
     CompareRtcxTime();
   }
-  
+
   delay(loop_ms + last_ms - millis());
   last_ms = millis();
 }

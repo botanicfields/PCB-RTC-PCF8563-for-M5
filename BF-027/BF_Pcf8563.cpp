@@ -188,7 +188,7 @@ int Pcf8563::GetInterrupt()
   return flag_got;
 }
 
-int Pcf8563::ClockOutForTrimmer()  // clock out 1Hz 
+int Pcf8563::ClockOutForTrimmer()  // clock out 1Hz
 {
   // CLKO(clock out) to adjust trimmer
   clock_out = Pcf8563::fco_1Hz;

@@ -41,8 +41,8 @@ void PrintSntpStatus(const char* header, sntp_sync_status_t sntp_sync_status)
   static const char* sntp_sync_status_str[] = {
     "SNTP_SYNC_STATUS_RESET       ",  // 0
     "SNTP_SYNC_STATUS_COMPLETED   ",  // 1
-    "SNTP_SYNC_STATUS_IN_PROGRESS ",  // 2 
-    "sntp_sync_status invalid     ",  // 3 
+    "SNTP_SYNC_STATUS_IN_PROGRESS ",  // 2
+    "sntp_sync_status invalid     ",  // 3
   };
   int sntp_sync_status_index = 3;
   if (sntp_sync_status >= 0 && sntp_sync_status <= 2)
@@ -55,7 +55,7 @@ void SntpTimeSyncNotificationCallback(struct timeval *tv)
   sntp_sync_status_t sntp_sync_status = sntp_get_sync_status();
   PrintSntpStatus("SNTP callback:", sntp_sync_status);
 
-  // synchronize time of RTCx 
+  // synchronize time of RTCx
   if (sntp_sync_status == SNTP_SYNC_STATUS_COMPLETED) {
     struct tm tm_sync;
     getLocalTime(&tm_sync);
