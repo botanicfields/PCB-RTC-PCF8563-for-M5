@@ -2,6 +2,7 @@
 PCF8563 RTC PCB with Grove I2C interface for M5Stack, M5Atom on Arduino IDE calibrated by SNTP
 
 # M5 用 RTC 基板
+<img src="./image/RTC_front.jpeg" width=300>
 
 　M5 製品用に作成した RTC 基板です。水晶振動子 により高精度に時刻を刻みます。バッテリ・バックアップにより本体の電源オフの状態でも時刻を維持します。
 
@@ -29,6 +30,8 @@ https://akizukidenshi.com/catalog/g/gK-13432/)
 https://akizukidenshi.com/catalog/g/gK-09991/)
 >> 2. RTC 基板の CLKO から 1Hz 信号を取り出し、1PPS の代わりに入力
 >> 3. 周波数カウンタの表示が所定の値に近づく様、RTC 基板上のトリマを調整
+
+<img src="./image/RTC_Calibrate.jpeg" width=300>
 
 # ソフトウェア
 　RTC の使用にあたっては、一般に入手可能なライブラリを利用することができます。一方で、サンプルプログラムを作成し、BF-027 フォルダに置きました。  
