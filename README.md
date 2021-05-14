@@ -16,7 +16,7 @@ a PCB of PCF8563-RTC with Grove-I2C for M5Stack and M5Atom synchronized with NTP
 
 - INT, CLKO 信号出力
 
-    　PCF8563(BM8563) の INT 信号、CLKO 信号を、基板上のピンソケットから取り出せます。これらの信号は 3.3V に 10kΩ でプルアップして。基板上の LED（INT: 赤、CLKO： 緑）で信号レベルを確認できます。 
+    　PCF8563(BM8563) の INT 信号、CLKO 信号を、基板上のピンソケットから取り出せます。これらの信号は 3.3V に 10kΩ でプルアップしています。基板上の LED（INT: 赤、CLKO： 緑）で信号オンを確認できます。 
 
 - 時刻の精度を改善
 
@@ -46,7 +46,7 @@ https://akizukidenshi.com/catalog/g/gK-09991/)
 
     上記 BF_Pcf8563.cpp の機能をテストするプログラムです。
 
-3. BF_RtcxNtp.h, RtcxNtp.cpp
+3. BF_RtcxNtp.h, BF_RtcxNtp.cpp
 
     RTC と NTP を相互補完的に使用するためのプログラムです。
     
