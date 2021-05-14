@@ -31,8 +31,7 @@ https://akizukidenshi.com/catalog/g/gK-09991/)
 >> 2. RTC 基板の CLKO から 1Hz 信号を取り出し、1PPS の代わりに入力
 >> 3. 周波数カウンタの表示が所定の値に近づく様、RTC 基板上のトリマを調整
 
-
-<img src="./image/RTC_Calibrate.jpeg" width=300>
+<img src="./image/RTC_Calibrate.JPEG" width=300>
 
 # ソフトウェア
 　RTC の使用にあたっては、一般に入手可能なライブラリを利用することができます。一方で、サンプルプログラムを作成し、BF-027 フォルダに置きました。  
