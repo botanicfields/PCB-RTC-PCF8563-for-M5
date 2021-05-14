@@ -6,7 +6,7 @@
 const char* time_zone  = "JST-9";
 const char* ntp_server = "pool.ntp.org";
 
-int SetTimeFromRtcx()
+void SetTimeFromRtcx()
 {
   struct tm tm_init;
 
