@@ -8,7 +8,7 @@ D1,1N4148,D_SOD-123,25.75,20.5,0,top
 D2,1N4148,D_SOD-123,7.5,26,90,top
 D3,GREEN,LED_0603_1608Metric,29.5,12.5,180,top
 D4,RED,LED_0603_1608Metric,29.5,15.5,180,top
-J3,OUT,BF@PinSocket_1x03_P2.54mm_Horizontal,33.5,12.5,180,top
+J3,OUT,BF@PinSocket_1x03_P2.54mm_Horizontal,33.5,15,90,top
 R1,2.2k,R_0603_1608Metric,26,12,0,top
 R2,2.2k,R_0603_1608Metric,26,16,0,top
 R3,10k,R_0603_1608Metric,26,14,0,top
