@@ -31,7 +31,7 @@ https://akizukidenshi.com/catalog/g/gK-09991/)
 >> 2. RTC 基板の CLKO から 1Hz 信号を取り出し、1PPS の代わりに入力
 >> 3. 周波数カウンタの表示が所定の値に近づく様、RTC 基板上のトリマを調整
 
-<img src="./image/RTC_Calibrate_M5Stack.JPEG" width=230>
+<img src="./image/RTC_Calibrate_M5Stack.jpeg" width=230>
 
 <img src="./image/RTC_Calibrate.JPEG" width=300>
 
