@@ -2,32 +2,34 @@
 // BF-027 PCF8563 RTC for Grove I2C
 // test and example
 
-// ----- selection of controllers(1/3) -----
-// for M5Stack
+#define M5STACK
+//#define M5ATOM
+
+#ifdef M5STACK
 #include <M5Stack.h>
-// for M5Atom
-//#include <M5Atom.h>
-// ----- selection of controllers(1/3) end -----
+#endif
+#ifdef M5ATOM
+#include <M5Atom.h>
+#endif
 
 #include "BF_Wifi.h"
 #include "BF_RtcxNtp.h"
 #include "BF_Pcf8563Test.h"
 
-// ----- selection of controllers(2/3) -----
-// for M5Stack
+#ifdef M5STACK
 const bool lcd_enable(true);
 const bool sd_enable(true);
 const bool serial_enable(true);
 const bool i2c_enable(true);
-// for M5Atom
-//const bool serial_enable(true);
-//const bool i2c_enable(true);
-//const bool display_enable(true);
-// for I2C of M5Atom
-//const int wire_scl(21);       // GPIO21
-//const int wire_sda(25);       // GPIO25
-//const int wire_freq(100000);  // 100kHz
-// ----- selection of controllers(2/3) end -----
+#endif
+#ifdef M5ATOM
+const bool serial_enable(true);
+const bool i2c_enable(true);
+const bool display_enable(true);
+const int wire_scl(21);       // GPIO21
+const int wire_sda(25);       // GPIO25
+const int wire_freq(100000);  // 100kHz
+#endif
 
 // for loop control
 const int loop_ms(20);          // 20ms
@@ -37,13 +39,13 @@ int interval_last_ms(0);
 
 void setup()
 {
-  // ----- selection of controllers(3/3) -----
-  // for M5Stack
+#ifdef M5STACK
   M5.begin(lcd_enable, sd_enable, serial_enable, i2c_enable);
-  // for M5Atom
-  //M5.begin(serial_enable, !i2c_enable, !display_enable);
-  //Wire.begin(wire_sda, wire_scl, wire_freq);
-  // ----- selection of controllers(3/3) end -----
+#endif
+#ifdef M5ATOM
+  M5.begin(serial_enable, !i2c_enable, display_enable);
+  Wire.begin(wire_sda, wire_scl, wire_freq);
+#endif
 
   // RTCx PCF8563: set I2C connected
   rtcx.Begin(Wire);
