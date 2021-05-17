@@ -16,21 +16,6 @@
 #include "BF_RtcxNtp.h"
 #include "BF_Pcf8563Test.h"
 
-#ifdef M5STACK
-const bool lcd_enable(true);
-const bool sd_enable(true);
-const bool serial_enable(true);
-const bool i2c_enable(true);
-#endif
-#ifdef M5ATOM
-const bool serial_enable(true);
-const bool i2c_enable(true);
-const bool display_enable(true);
-const int wire_scl(21);       // GPIO21
-const int wire_sda(25);       // GPIO25
-const int wire_freq(100000);  // 100kHz
-#endif
-
 // for loop control
 const int loop_ms(20);          // 20ms
 const int interval_ms(600000);  // 600sec
@@ -40,10 +25,21 @@ int interval_last_ms(0);
 void setup()
 {
 #ifdef M5STACK
+  const bool lcd_enable(true);
+  const bool sd_enable(true);
+  const bool serial_enable(true);
+  const bool i2c_enable(true);
   M5.begin(lcd_enable, sd_enable, serial_enable, i2c_enable);
 #endif
 #ifdef M5ATOM
+  const bool serial_enable(true);
+  const bool i2c_enable(true);
+  const bool display_enable(true);
   M5.begin(serial_enable, !i2c_enable, display_enable);
+
+  const int wire_scl(21);       // GPIO21
+  const int wire_sda(25);       // GPIO25
+  const int wire_freq(100000);  // 100kHz
   Wire.begin(wire_sda, wire_scl, wire_freq);
 #endif
 
