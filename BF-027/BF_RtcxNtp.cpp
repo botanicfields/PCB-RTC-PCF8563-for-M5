@@ -19,8 +19,17 @@ void SetTimeFromRtcx()
     settimeofday(&tv, NULL);
     Serial.print("Set time from RTCx: RTCx valid\n");
   }
-  else
+  else {
+    tm_init.tm_year = 120;  // 2020
+    tm_init.tm_mon  = 0;    // January
+    tm_init.tm_mday = 1;
+    tm_init.tm_hour = 0;
+    tm_init.tm_min  = 0;
+    tm_init.tm_sec  = 0;
+    struct timeval tv = { mktime(&tm_init), 0 };
+    settimeofday(&tv, NULL);
     Serial.print("Set time from RTCx: ERROR RTCx invalid\n");
+  }
 
   getLocalTime(&tm_init);
   Serial.print(&tm_init, "Set time from RTCx: %A, %B %d %Y %H:%M:%S\n");
