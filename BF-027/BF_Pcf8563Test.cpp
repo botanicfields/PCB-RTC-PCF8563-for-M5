@@ -2,6 +2,9 @@
 // BF-027 PCF8563 RTC for Grove I2C
 // test of BF_Pcf8563.h/cpp
 
+#include <Arduino.h>
+#include <sys/time.h>  // for struct timeval
+#include "BF_Pcf8563.h"
 #include "BF_Pcf8563Test.h"
 
 //..:....1....:....2....:....3....:....4....:....5....:....6....:....7....:....8
@@ -40,14 +43,14 @@ void CompareRtcxTime()
   //getLocalTime = Wednesday, September 11 2021 11:10:46;
   //RTCx = Wednesday, September 11 2021 11:10:46;
 
-  Serial.printf("RTCx - gLT = %d\n", mktime(&tm_rtcx) - mktime(&tm_glt));
+  Serial.printf("RTCx - gLT = %d\n", (int)mktime(&tm_rtcx) - (int)mktime(&tm_glt));
 }
 
 void PrintTimeval()
 {
   struct timeval tv;
   gettimeofday(&tv, NULL);
-  Serial.printf("test: timeval = %8d.%06d;  ", tv.tv_sec, tv.tv_usec);
+  Serial.printf("test: timeval = %8d.%06d;  ", (int)tv.tv_sec, (int)tv.tv_usec);
 }
 
 //..:....1....:....2....:....3....:....4....:....5....:....6....:....7....:....8
@@ -171,7 +174,7 @@ void TestGetInterrupt()
     test_start_ms = millis();
 
     double v = rtcx.SetTimer(t);
-    Serial.printf("elapse=%6dms timer set t=%11.5f v=%11.5f\n", millis() - test_start_ms, t, v);
+    Serial.printf("elapse=%6dms timer set t=%11.5f v=%11.5f\n", (int)millis() - test_start_ms, t, v);
 
     rtcx.EnableTimerInterrupt();  // enable timer interrupt
     PrintTestInterrupt("enable ");
@@ -204,7 +207,7 @@ void TestTimerPulse()
     test_start_ms = millis();
 
     double v = rtcx.SetTimer(t);
-    Serial.printf("elapse=%6dms, Timer set t=%11.5f v=%11.5f\n", millis() - test_start_ms, t, v);
+    Serial.printf("elapse=%6dms, Timer set t=%11.5f v=%11.5f\n", (int)millis() - test_start_ms, t, v);
 
     rtcx.EnableTimerInterrupt(true, true);  // enable timer interrupt, enable pulse mode
     delay(5000);
@@ -217,9 +220,9 @@ void TestTimerPulse()
   rtcx.DisableTimer();
 }
 
-void PrintTestInterrupt(const String s)
+void PrintTestInterrupt(const char* s)
 {
-  Serial.printf("elapse=%6dms %s", millis() - test_start_ms, s);
+  Serial.printf("elapse=%6dms %s", (int)millis() - test_start_ms, s);
   rtcx.ReadInterrupt();  PrintInterrupt();
   rtcx.ReadTimer();  PrintTimer();  Serial.println();
 }

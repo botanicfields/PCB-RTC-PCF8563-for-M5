@@ -1,6 +1,7 @@
 // Copyright 2021 BotanicFields, Inc.
 // BF-027 PCF8563 RTC for Grove I2C of M5Stack, M5Atom
 
+#include <Arduino.h>
 #include "BF_Pcf8563.h"
 
 int Pcf8563::Begin(TwoWire &wire)

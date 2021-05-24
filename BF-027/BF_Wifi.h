@@ -3,7 +3,6 @@
 #ifndef INCLUDED_BF_WIFI_H
 #define INCLUDED_BF_WIFI_H
 
-#include <Arduino.h>
 #include <WiFi.h>
 #include <WiFiManager.h>  // https://github.com/tzapu/WiFiManager
 

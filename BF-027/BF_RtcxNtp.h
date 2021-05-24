@@ -4,10 +4,8 @@
 #ifndef INCLUDED_BF_RTCXNTP_H
 #define INCLUDED_BF_RTCXNTP_H
 
-#include <Arduino.h>
 #include <sys/time.h>  // for struct timeval
-#include <sntp.h>  // for sntp_sync_status, https://github.com/espressif/arduino-esp32 1.0.6-
-#include "BF_Pcf8563.h"
+#include <sntp.h>      // for sntp_sync_status, https://github.com/espressif/arduino-esp32 1.0.6-
 
 void SetTimeFromRtcx();
 void NtpBegin();

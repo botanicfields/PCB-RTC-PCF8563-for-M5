@@ -1,9 +1,9 @@
 // Copyright 2021 BotanicFields, Inc.
 // BF-027 PCF8563 RTC for Grove I2C
-// test and example
+// test and start example
 
-#define M5STACK
-//#define M5ATOM
+//#define M5STACK
+#define M5ATOM
 
 #ifdef M5STACK
 #include <M5Stack.h>
@@ -13,13 +13,14 @@
 #endif
 
 #include "BF_Wifi.h"
+#include "BF_Pcf8563.h"
 #include "BF_RtcxNtp.h"
 #include "BF_Pcf8563Test.h"
 
 // for loop control
 const int loop_ms(20);          // 20ms
 const int interval_ms(600000);  // 600sec
-int last_ms(0);
+int loop_last_ms(0);
 int interval_last_ms(0);
 
 void setup()
@@ -63,8 +64,8 @@ void setup()
   NtpBegin();
 
   // loop control
-  last_ms = millis();
-  interval_last_ms = last_ms;
+  loop_last_ms = millis();
+  interval_last_ms = loop_last_ms;
 }
 
 void loop()
@@ -78,6 +79,6 @@ void loop()
     CompareRtcxTime();
   }
 
-  delay(loop_ms + last_ms - millis());
-  last_ms = millis();
+  delay(loop_ms + loop_last_ms - millis());
+  loop_last_ms = millis();
 }

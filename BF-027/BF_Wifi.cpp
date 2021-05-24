@@ -1,6 +1,7 @@
 // Copyright 2021 BotanicFields, Inc.
 // routines for Wi-Fi
 
+#include <Arduino.h>
 #include "BF_Wifi.h"
 
 WiFiManager wm;

@@ -5,10 +5,6 @@
 #ifndef INCLUDED_BF_PCF8563TEST_H
 #define INCLUDED_BF_PCF8563TEST_H
 
-#include <sys/time.h>  // for struct timeval
-#include "BF_RtcxNtp.h"
-#include "BF_Pcf8563.h"
-
 void TestControl();
 void PrintTestControl();
 
@@ -26,7 +22,7 @@ void TestSetTimer();
 
 void TestGetInterrupt();
 void TestTimerPulse();
-void PrintTestInterrupt(const String s);
+void PrintTestInterrupt(const char* s);
 
 void PrintControl();
 void PrintInterrupt();

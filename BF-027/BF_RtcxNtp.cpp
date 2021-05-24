@@ -1,6 +1,8 @@
 // Copyright 2021 BotanicFields, Inc.
 // routines for NTP and RTCx(PCf8563)
 
+#include <Arduino.h>
+#include "BF_Pcf8563.h"
 #include "BF_RtcxNtp.h"
 
 const char* time_zone  = "JST-9";

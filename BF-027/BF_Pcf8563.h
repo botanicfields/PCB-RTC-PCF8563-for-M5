@@ -4,7 +4,6 @@
 #ifndef INCLUDED_BF_PCF8563_H
 #define INCLUDED_BF_PCF8563_H
 
-#include <Arduino.h>
 #include <Wire.h>
 
 class Pcf8563 {
