@@ -2,8 +2,8 @@
 // BF-027 PCF8563 RTC for Grove I2C
 // test and start example
 
-//#define M5STACK
-#define M5ATOM
+#define M5STACK
+//#define M5ATOM
 
 #ifdef M5STACK
 #include <M5Stack.h>
@@ -36,7 +36,7 @@ void setup()
   const bool serial_enable(true);
   const bool i2c_enable(true);
   const bool display_enable(true);
-  M5.begin(serial_enable, !i2c_enable, display_enable);
+  M5.begin(serial_enable, !i2c_enable, !display_enable);
 
   const int wire_scl(21);       // GPIO21
   const int wire_sda(25);       // GPIO25
@@ -61,6 +61,7 @@ void setup()
   // set system time, connect Wi-Fi, start NTP
   SetTimeFromRtcx();
   WifiBegin();
+  WiFi.setSleep(false);  // https://macsbug.wordpress.com/2021/05/02/buttona-on-m5stack-does-not-work-properly/
   NtpBegin();
 
   // loop control
@@ -71,7 +72,7 @@ void setup()
 void loop()
 {
   M5.update();
-  WifiProcess();
+//  WifiProcess();
 
   int now_ms = millis();
   if (now_ms - interval_last_ms > interval_ms) {
