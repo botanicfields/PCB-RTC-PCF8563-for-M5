@@ -2,8 +2,8 @@
 // BF-027 PCF8563 RTC for Grove I2C
 // test and start example
 
-#define M5STACK
-//#define M5ATOM
+//#define M5STACK
+#define M5ATOM
 
 #ifdef M5STACK
 #include <M5Stack.h>
@@ -29,19 +29,14 @@ void setup()
   const bool lcd_enable(true);
   const bool sd_enable(true);
   const bool serial_enable(true);
-  const bool i2c_enable(true);
+  const bool i2c_enable(true);  // SCL = GPIO22, SDA = GPIO21, frequency = 100kHz;
   M5.begin(lcd_enable, sd_enable, serial_enable, i2c_enable);
 #endif
 #ifdef M5ATOM
   const bool serial_enable(true);
-  const bool i2c_enable(true);
+  const bool i2c_enable(true);  // SCL = GPIO21, SDA = GPIO25, frequency = 100kHz;
   const bool display_enable(true);
-  M5.begin(serial_enable, !i2c_enable, !display_enable);
-
-  const int wire_scl(21);       // GPIO21
-  const int wire_sda(25);       // GPIO25
-  const int wire_freq(100000);  // 100kHz
-  Wire.begin(wire_sda, wire_scl, wire_freq);
+  M5.begin(serial_enable, i2c_enable, !display_enable);
 #endif
 
   // RTCx PCF8563: set I2C connected
@@ -72,6 +67,7 @@ void setup()
 void loop()
 {
   M5.update();
+  RtcxUpdate();  // for SNTP callback
 //  WifiProcess();
 
   int now_ms = millis();

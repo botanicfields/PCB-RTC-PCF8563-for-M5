@@ -2,8 +2,7 @@
 // BF-027 PCF8563 RTC for Grove I2C
 // test of BF_Pcf8563.h/cpp
 
-#ifndef INCLUDED_BF_PCF8563TEST_H
-#define INCLUDED_BF_PCF8563TEST_H
+#pragma once
 
 void TestControl();
 void PrintTestControl();
@@ -30,5 +29,3 @@ void PrintTime();
 void PrintAlarm();
 void PrintClockOut();
 void PrintTimer();
-
-#endif  // INCLUDED_BF_PCF8563TEST_H
