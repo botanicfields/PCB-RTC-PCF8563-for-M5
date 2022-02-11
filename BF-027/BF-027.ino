@@ -20,8 +20,8 @@
 // for loop control
 const int loop_ms(20);          // 20ms
 const int interval_ms(600000);  // 600sec
-int loop_last_ms(0);
-int interval_last_ms(0);
+unsigned int loop_last_ms(0);
+unsigned int interval_last_ms(0);
 
 void setup()
 {
@@ -70,7 +70,7 @@ void loop()
   RtcxUpdate();  // for SNTP callback
 //  WifiProcess();
 
-  int now_ms = millis();
+  unsigned int now_ms = millis();
   if (now_ms - interval_last_ms > interval_ms) {
     interval_last_ms = now_ms;
     CompareRtcxTime();
