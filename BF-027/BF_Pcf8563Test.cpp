@@ -50,7 +50,7 @@ void PrintTimeSpec()
 {
   struct timespec ts;  // time spec: second, nano-second
   clock_gettime(CLOCK_REALTIME, &ts);
-  Serial.printf("test: TimeSpec = %8d.%06d;  ", (int)ts.tv_sec, (int)ts.tv_nsec);
+  Serial.printf("test: TimeSpec = %10d %09d;  ", (int)ts.tv_sec, (int)ts.tv_nsec);
 }
 
 //..:....1....:....2....:....3....:....4....:....5....:....6....:....7....:....8
