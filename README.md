@@ -16,7 +16,7 @@ a PCB of PCF8563-RTC with Grove-I2C for M5Stack and M5Atom synchronized with NTP
 
 - INT, CLKO 信号出力
 
-    　PCF8563(BM8563) の INT 信号、CLKO 信号を、基板上のピンソケットから取り出せます。これらの信号は 3.3V に 10kΩ でプルアップしています。基板上の LED（INT: 赤、CLKO： 緑）で信号オンを確認できます。 
+    　PCF8563(BM8563) の INT 信号、CLKO 信号を、基板上のピンソケットから取り出せます。これらの信号は 3.3V に 10kΩ でプルアップしています。基板上の LED（INT: 赤、CLKO： 緑）で信号オンを確認できます。
 
 - 時刻の精度を改善
 
@@ -38,11 +38,11 @@ https://akizukidenshi.com/catalog/g/gK-09991/)
 # ソフトウェア
 　RTC の使用にあたっては、一般に入手可能なライブラリを利用することができます。
 
-　他の I2C デバイスとの共存や、NTP との相互補完を想定したサンプルプログラムを作成し、BF-027 フォルダに置きました。詳細な説明は Qiita にあります。
+　他の I2C デバイスとの共存や、NTP との相互補完を想定したサンプルプログラムを作成し、BF-027 フォルダに置きました。詳細な説明は Qiita（参考を参照）にあります。これらのプログラムは M5Stack 社の [RTC ユニット](https://docs.m5stack.com/en/unit/rtc)でも使用できます。
 
 1. BF_Pcf8563.h, BF_Pcf8563.cpp
 
-    RTC PCF8563(BM8563) にアクセスし、時刻、アラーム、タイマー、クロック出力などの機能を使用するためのライブラリです。
+    RTC PCF8563(BM8563) にアクセスし、時刻、アラーム、タイマー、クロック出力などの機能を使用するためのドライバです。
 
 2. BF_Pcf8563Test.h, BF_Pcf8563Test.cpp
 
@@ -51,19 +51,15 @@ https://akizukidenshi.com/catalog/g/gK-09991/)
 3. BF_RtcxNtp.h, BF_RtcxNtp.cpp
 
     RTC と NTP を相互補完的に使用するためのプログラムです。
-    
-    ※ arduino-ESP32(1.0.6) 以降が必要です。M5Stack 社が提供している環境 arduino-ESP32(1.0.4) では使用できません。
 
-4. BF_Wifi.h, BF_Wifi.cpp
+4. BF-027.ino
 
-    Wifi 接続に関するプログラムです。
+    上記プログラムの使用例です。  
+- M5Stack または M5Atom で動作します。冒頭の #define で使用する方を残してコメントアウトしてください。  
+- M5Atomでは RTC の接続先を GROVE コネクタか、またはピンソケットのどちらかを選べます。setup() の rtcx.Begin(Wire1) または rtcx.Begin(Wire) の使用するほうを残してコメントアウトしてください。
 
-5. BF-027.ino
-
-    上記プログラムの使用例です。
+# 参考
 
 (1) Qiita [「M5Atom, M5Stack Core 用の I2C リアルタイムクロック基板を作って動かす」](https://qiita.com/BotanicFields/items/dc35e12423be8f6e9b4e)
 
 (2) Qiita [「ESP32 において NTP の時刻同期を捕まえて RTC を更新する」](https://qiita.com/BotanicFields/items/f1e28af5a63e4ccf7023)
-
-

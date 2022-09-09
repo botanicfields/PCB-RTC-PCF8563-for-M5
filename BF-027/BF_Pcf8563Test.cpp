@@ -3,7 +3,7 @@
 // test of BF_Pcf8563.h/cpp
 
 #include <Arduino.h>
-#include <sys/time.h>  // for struct timeval
+#include <sys/time.h>  // for struct TimeSpec
 #include "BF_Pcf8563.h"
 #include "BF_Pcf8563Test.h"
 
@@ -33,7 +33,7 @@ void CompareRtcxTime()
   struct tm tm_glt;
   struct tm tm_rtcx;
 
-  PrintTimeval();
+  PrintTimeSpec();
   getLocalTime(&tm_glt);
   Serial.print(&tm_glt, "getLocalTime = %A, %B %d %Y %H:%M:%S;  ");
   rtcx.ReadTime(&tm_rtcx);
@@ -46,11 +46,11 @@ void CompareRtcxTime()
   Serial.printf("RTCx - gLT = %d\n", (int)mktime(&tm_rtcx) - (int)mktime(&tm_glt));
 }
 
-void PrintTimeval()
+void PrintTimeSpec()
 {
-  struct timeval tv;
-  gettimeofday(&tv, NULL);
-  Serial.printf("test: timeval = %8d.%06d;  ", (int)tv.tv_sec, (int)tv.tv_usec);
+  struct timespec ts;  // time spec: second, nano-second
+  clock_gettime(CLOCK_REALTIME, &ts);
+  Serial.printf("test: TimeSpec = %8d.%06d;  ", (int)ts.tv_sec, (int)ts.tv_nsec);
 }
 
 //..:....1....:....2....:....3....:....4....:....5....:....6....:....7....:....8

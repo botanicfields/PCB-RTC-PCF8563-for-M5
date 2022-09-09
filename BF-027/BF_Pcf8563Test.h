@@ -8,7 +8,7 @@ void TestControl();
 void PrintTestControl();
 
 void CompareRtcxTime();
-void PrintTimeval();
+void PrintTimeSpec();
 
 void TestAlarm();
 void TestAlarmSub(int m, int h, int d, int w, int am, int ah, int ad, int aw);
